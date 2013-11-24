@@ -23,10 +23,10 @@
             <div class="vert-text">
                 <h1 class="lead"> Hando </h1>
                 <div class="container col-md-offset-4 col-md-4">
-                    <form class="form-signin">
-                        <input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
+                    <form class="form-signin" action="/submit" method="POST">
+                        <input name="username" type="text" class="form-control" placeholder="Email address" required="" autofocus="">
                         <p></p>
-                        <input type="password" class="form-control" placeholder="Password" required="">
+                        <input name="password" type="password" class="form-control" placeholder="Password" required="">
                         <p></p>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                             Sign In
