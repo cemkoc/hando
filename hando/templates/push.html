@@ -22,21 +22,48 @@
             <div class="vert-text">
                 <h1 class="lead"> Hando </h1>
                 <div class="container col-md-offset-4 col-md-4">
-                    {% if not door_is_open %}
-                    <a href="" action="/push" method="POST" type="button" class="btn btn-lg btn-primary btn-block">
-                        Open Door
-                    </a>
-                    {% else %}
-                    <a href="" action="/push" method="POST" type="button" class="btn btn-lg btn-primary btn-block">
-                        Door is Open
-                    </a>
-                    {% endif %}
+					<div style="border-radius: 6px; background-color: white; padding: 16px; font-size: 1.5em;">
+						Door is currently <span style="font-weight: bold;" id='sts'>unknown</span>.
+					</div>
+					<br/>
+					<a class="btn bt-lg btn-primary btn-block" id='btc'>
+						Unknown
+					</a>
                 </div>
             </div>
         </div>
+
         <!-- /Full Page Image Header Area -->
         <script src="static/js/jquery.js"></script>
         <script src="static/js/bootstrap.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				function update() {
+					$.get('/status', function(data){
+						data = JSON.parse(data);
+						if (data) {
+							$('#sts').text('unlocked');
+							$('#btc').text('Lock');
+						} else {
+							$('#sts').text('locked');
+							$('#btc').text('Unlock');
+						}
+					});
+				}
+
+				$('#btc').click(function() {
+					$.post('/command', function(data) {
+						update();
+					});
+				});
+
+				setInterval(update, 1000);
+
+			});
+		</script>
+
     </body>
 
 </html>
