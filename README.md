@@ -1,7 +1,7 @@
 hando
 =====
 
-Built by me (Brian), Gavin, Cem, Can, Daniel, and Alan at Bear Hack Fall 2013. Won 'Best First Hack'.
+Built by me (Cem KOC), Gavin, Brian, Can, Daniel, and Alan at Bear Hack Fall 2013. Won 'Best First Time Hack'.
 
 A simple web application that allows the user to remotely unlock a door.
 
